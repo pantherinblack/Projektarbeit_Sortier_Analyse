@@ -1,16 +1,24 @@
-public class Data {
-    private static final int QUICKSORT_FIRST = 0;
-    private static final int QUICKSORT_RANDOM = 1;
-    private static final int SHAKERSORT = 2;
-    private static final int BINARYTREESORT = 3;
-    private static final int INSERTIONSORT = 4;
-    private static final int MERGESORT = 5;
+public class Data implements Comparable<Data>{
+    //Add static variables for other sort algorithms.
+    //Sorted after int value
+    public static final int QUICKSORT_FIRST = 0;
+    public static final int QUICKSORT_RANDOM = 1;
+    public static final int SHAKERSORT = 2;
+    public static final int BINARYTREESORT = 3;
+    public static final int INSERTIONSORT = 4;
+    public static final int MERGESORT = 5;
+    private static final String[] converter = {"QUICKSORT_FIRST", "QUICKSORT_RANDOM", "SHAKERSORT", "BINARYTREESORT", "INSERTIONSORT", "MERGESORT"};
+
     private int sortType;
     private int countWrite;
     private int countCompare;
     private long nanoTime;
     private int storageSpace;
     private int[] array;
+
+    public static String getType(int sortType){
+        return converter[sortType];
+    }
 
     public Data(int sortType) {
         this.sortType = sortType;
@@ -63,5 +71,9 @@ public class Data {
 
     public void setArray(int[] array) {
         this.array = array;
+    }
+
+    public int compareTo(Data data){
+        return Integer.compare(sortType, data.sortType);
     }
 }
