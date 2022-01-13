@@ -1,6 +1,5 @@
-public class Data implements Comparable<Data>{
+public class Data {
     //Add static variables for other sort algorithms.
-    //Sorted after int value
     public static final int QUICKSORT_FIRST = 0;
     public static final int QUICKSORT_RANDOM = 1;
     public static final int SHAKERSORT = 2;
@@ -73,7 +72,4 @@ public class Data implements Comparable<Data>{
         this.array = array;
     }
 
-    public int compareTo(Data data){
-        return Integer.compare(sortType, data.sortType);
-    }
 }

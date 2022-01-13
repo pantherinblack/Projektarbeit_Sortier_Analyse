@@ -33,6 +33,7 @@ public class Manager {
             }
             runSorters(array.clone());
         }
+        dataExport.generateFiletext();
     }
 
     /**
