@@ -6,11 +6,11 @@ public class Data {
     public static final int BINARYTREESORT = 3;
     public static final int INSERTIONSORT = 4;
     public static final int MERGESORT = 5;
-    private static final String[] converter = {"QUICKSORT_FIRST", "QUICKSORT_RANDOM", "SHAKERSORT", "BINARYTREESORT", "INSERTIONSORT", "MERGESORT"};
+    private static final String[] converter = {"Quicksort first", "Quicksort random", "Shakersort", "BinaryTreesort", "Insertionsort", "Mergesort"};
 
     private int sortType;
     private int countWrite;
-    private int countCompare;
+    private long countCompare;
     private long nanoTime;
     private int storageSpace;
     private int[] array;
@@ -40,11 +40,11 @@ public class Data {
         this.countWrite = countWrite;
     }
 
-    public int getCountCompare() {
+    public long getCountCompare() {
         return countCompare;
     }
 
-    public void setCountCompare(int countCompare) {
+    public void setCountCompare(long countCompare) {
         this.countCompare = countCompare;
     }
 

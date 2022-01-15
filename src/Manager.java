@@ -11,6 +11,7 @@ public class Manager {
     private final Vector<SortierIF> sorter = new Vector<>();
     private final DataExport dataExport = new DataExport();
     private final DataImport dataImport = new DataImport();
+    private double complete=0;
 
     /**
      * Creation of a manager object and editing of paths for data input.
@@ -31,8 +32,10 @@ public class Manager {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            runSorters(array.clone());
+            runSorters(array);
         }
+        System.out.println("\r100.00%");
+        System.out.println("Generating Solutions finished, generating files.");
         dataExport.generateFiletext();
     }
 
@@ -41,9 +44,11 @@ public class Manager {
      * @param array containing the array to sort.
      */
     private void runSorters(int[] array){
-        for (SortierIF sort : sorter){
-            sort.sort(array);
-            dataExport.addData(sort.getData());
+        for (int i=0; i< sorter.size(); i++){
+            System.out.print("\r"+(Math.round(complete*100.0))/100.0+"%");
+            sorter.get(i).sort(array.clone());
+            complete+=100.0/sorter.size()/ fileSources.length;
+            dataExport.addData(sorter.get(i).getData());
         }
     }
 
@@ -74,8 +79,9 @@ public class Manager {
      */
     public static void main(String[] args) {
         Manager manager = new Manager();
-        //Add sorter algorithms
-        //manager.addSorter(sorter);
+        for (int i=0; i<500; i++) {
+            manager.addSorter(new SelectionSort());
+        }
         manager.run();
     }
 }

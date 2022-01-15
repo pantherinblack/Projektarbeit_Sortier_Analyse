@@ -23,12 +23,12 @@ public class DataExport {
         this.data.add(data);
     }
 
-
     public void generateFiletext() {
-        String text = "";
-        String[] dataType = {"Time(Nanoseconds)", "Writes", "Compares", "Space"};
+        String completeText = "";
+        String[] dataType = {"Time(Nanoseconds)", "Writes", "Compares", "Space", "Sorted"};
 
-        for (int a = 0; a < 4; a++) {
+        for (int a = 0; a < 5; a++) {
+            String text="";
             text += dataType[a];
             for (int i=0; i< data.size()/ fileSources.length; i++) {
                 text += "," + Data.getType(data.get(i*fileSources.length).getSortType());
@@ -40,18 +40,25 @@ public class DataExport {
                 for (int j = 0; j < data.size()/fileSources.length; j++) {
                     text += ",";
                     switch (a) {
-                        case 0 -> text += data.get((j * fileSources.length + i)).getNanoTime();
-                        case 1 -> text += data.get((j * fileSources.length + i)).getCountWrite();
-                        case 2 -> text += data.get((j * fileSources.length + i)).getCountCompare();
-                        case 3 -> text += data.get((j * fileSources.length + i)).getStorageSpace();
+                        case 0 -> text += data.get((j + i * data.size() / fileSources.length)).getNanoTime();
+                        case 1 -> text += data.get((j + i * data.size() / fileSources.length)).getCountWrite();
+                        case 2 -> text += data.get((j + i * data.size() / fileSources.length)).getCountCompare();
+                        case 3 -> text += data.get((j + i * data.size() / fileSources.length)).getStorageSpace();
+                        case 4 -> text += SortChecker.isSorted(data.get((j + i * data.size() / fileSources.length)).getArray());
                     }
 
                 }
                 text += "\n";
             }
+            completeText+=text;
+            exportFile(text, dataType[a]+"_Solutions.csv");
         }
+        exportFile(completeText, "All_Solutions.csv");
+    }
+
+    public void exportFile(String text, String fileName){
         try {
-            FileWriter writer = new FileWriter(new File("").getAbsolutePath()+"\\solutions.csv");
+            FileWriter writer = new FileWriter(new File("").getAbsolutePath()+"\\solutions\\"+fileName);
             writer.write(text);
             writer.flush();
             writer.close();
