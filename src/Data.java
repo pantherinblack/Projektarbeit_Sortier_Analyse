@@ -6,11 +6,6 @@
  * @since 12.01.2022
  */
 public class Data {
-    /**
-     * Conversion array, for the Sort type.
-     * value of the SortType defines the index of this string array.
-     */
-    private static final String[] converter = {"Quicksort first", "Quicksort random", "Shakersort", "BinaryTreesort", "Insertionsort", "Mergesort"};
 
     /**
      * Attribute storing the number of writes the sort-algorithm needed to sort the array.
@@ -20,7 +15,7 @@ public class Data {
     /**
      * Attribute storing the sort type, defined in the constructor, defines the sorting-algorithm used.
      */
-    private String  sortType;
+    private String sortType;
 
     /**
      * Attribute storing the value of heap space needed to sort the array in bytes.

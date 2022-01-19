@@ -2,10 +2,10 @@ import java.io.*;
 import java.util.Vector;
 
 /**
- * This class manages all data import, export, calculations and
+ * This class manages all data import, export, calculations and Executes them with the run() method.
  * @since 12.01.2022
  * @author Kevin Stupar
- * @version 1.2
+ * @version 1.3
  */
 public class Manager {
 
