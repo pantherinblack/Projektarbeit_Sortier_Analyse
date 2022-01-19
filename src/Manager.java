@@ -2,15 +2,36 @@ import java.io.*;
 import java.util.Vector;
 
 /**
+ * This class manages all data import, export, calculations and
  * @since 12.01.2022
  * @author Kevin Stupar
- * @version 0.3
+ * @version 1.2
  */
 public class Manager {
-    public final String[] fileSources;
+
+    /**
+     * Sores the source to all files.
+     */
+    private final String[] fileSources;
+
+    /**
+     * Stores sorters for later execution.
+     */
     private final Vector<SortierIF> sorter = new Vector<>();
+
+    /**
+     * Object used to export data.
+     */
     private final DataExport dataExport = new DataExport();
+
+    /**
+     * Object used to import data.
+     */
     private final DataImport dataImport = new DataImport();
+
+    /**
+     * value for showing the completion in %
+     */
     private double complete=0;
 
     /**
@@ -18,7 +39,6 @@ public class Manager {
      */
     public Manager() {
         fileSources = dataImport.getFileSources();
-
     }
 
     /**
@@ -79,9 +99,7 @@ public class Manager {
      */
     public static void main(String[] args) {
         Manager manager = new Manager();
-        for (int i=0; i<500; i++) {
-            manager.addSorter(new SelectionSort());
-        }
+        manager.addSorter(new SelectionSort());
         manager.run();
     }
 }

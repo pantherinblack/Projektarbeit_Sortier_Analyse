@@ -4,7 +4,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Vector;
 
+/**
+ * Used for managing int arrays, able to read filenames and the array-content of files.
+ * @since 12.01.2022
+ * @author Kevin Stupar
+ * @version 1.0
+ */
 public class DataImport {
+    /**
+     * return all file-sources, in the "files" folder of the Project.
+     * @return file-sources to Arrays.
+     */
     public String[] getFileSources(){
         String[] fileSources = new File(new File("").getAbsolutePath()+"/files").list();
         for (int i=0; i<fileSources.length; i++){
@@ -14,9 +24,9 @@ public class DataImport {
     }
 
     /**
-     * Reads File, sores all int values in a vector and returns it.
+     * Reads a File, converts all int values in a vector and returns it.
      * @param fileSource Path to file to read int values from
-     * @return vector, containing an array
+     * @return vector, containing Integers
      * @throws IOException
      */
     public Vector<Integer> readFile(String fileSource) throws IOException {
@@ -29,6 +39,8 @@ public class DataImport {
                  vector.add(Integer.parseInt(text));
              }
         }
+
         return vector;
+
     }
 }

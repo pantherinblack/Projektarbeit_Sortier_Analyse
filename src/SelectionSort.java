@@ -9,13 +9,13 @@ public class SelectionSort implements SortierIF{
         this.array = array;
         space+=array.length;
         time = -System.nanoTime();
-        SelectionSort();
+        selectionSort();
         time += System.nanoTime();
     }
 
     @Override
     public Data getData() {
-        Data data = new Data(Data.INSERTIONSORT);
+        Data data = new Data("Selection-Sort");
         data.setArray(array);
         data.setCountCompare(compares);
         data.setCountWrite(writes);
@@ -24,7 +24,7 @@ public class SelectionSort implements SortierIF{
         return data;
     }
 
-    public void SelectionSort() {
+    public void selectionSort() {
         space++;
         for (int i = 0; i < array.length; i++) {
             compares++;
