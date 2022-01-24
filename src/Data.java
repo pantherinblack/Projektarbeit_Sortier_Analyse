@@ -55,7 +55,7 @@ public class Data {
 
     /**
      * Sets the sort-type for later use.
-     * @param sortType sorttype to be set for later use.
+     * @param sortType sort-type to be set for later use.
      */
     public void setSortType(String  sortType) {
         this.sortType = sortType;

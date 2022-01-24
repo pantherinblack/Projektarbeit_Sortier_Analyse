@@ -1,10 +1,11 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Vector;
 
 /**
- * Used to export data and convert into a Excel readable format.
+ * Used to export data and convert into an Excel readable format.
  * For managing export, add data with the addData() Method
  * @author Kevin Stupar
  * @version 1.0
@@ -25,7 +26,7 @@ public class DataExport {
      * Constructor, removes the ".dat" ending for the fileSources attribute, for better looks.
      */
     public DataExport() {
-        for (int i = 0; i < fileSources.length; i++) {
+        for (int i = 0; i < Objects.requireNonNull(fileSources).length; i++) {
             fileSources[i] = fileSources[i].replace(".dat", "");
         }
     }
@@ -58,11 +59,11 @@ public class DataExport {
                 for (int j = 0; j < data.size()/fileSources.length; j++) {
                     text.append(",");
                     switch (a) {
-                        case 0 -> text.append(data.get((j + i * data.size() / fileSources.length)).getNanoTime());
-                        case 1 -> text.append(data.get((j + i * data.size() / fileSources.length)).getCountWrite());
-                        case 2 -> text.append(data.get((j + i * data.size() / fileSources.length)).getCountCompare());
-                        case 3 -> text.append(data.get((j + i * data.size() / fileSources.length)).getStorageSpace());
-                        case 4 -> text.append(SortChecker.isSorted(data.get((j + i * data.size() / fileSources.length)).getArray()));
+                        case 0 : text.append(data.get((j + i * data.size() / fileSources.length)).getNanoTime());
+                        case 1 : text.append(data.get((j + i * data.size() / fileSources.length)).getCountWrite());
+                        case 2 : text.append(data.get((j + i * data.size() / fileSources.length)).getCountCompare());
+                        case 3 : text.append(data.get((j + i * data.size() / fileSources.length)).getStorageSpace());
+                        case 4 : text.append(SortChecker.isSorted(data.get((j + i * data.size() / fileSources.length)).getArray()));
                     }
 
                 }

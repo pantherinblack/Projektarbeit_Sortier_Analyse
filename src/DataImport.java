@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Vector;
 
 /**
@@ -17,7 +18,7 @@ public class DataImport {
      */
     public String[] getFileSources(){
         String[] fileSources = new File(new File("").getAbsolutePath()+"/files").list();
-        for (int i=0; i<fileSources.length; i++){
+        for (int i = 0; i< Objects.requireNonNull(fileSources).length; i++){
             fileSources[i] = new File("").getAbsolutePath()+"\\files\\"+fileSources[i];
         }
         return fileSources;
@@ -27,7 +28,6 @@ public class DataImport {
      * Reads a File, converts all int values in a vector and returns it.
      * @param fileSource Path to file to read int values from
      * @return vector, containing Integers
-     * @throws IOException
      */
     public Vector<Integer> readFile(String fileSource) throws IOException {
         Vector<Integer> vector = new Vector<>();

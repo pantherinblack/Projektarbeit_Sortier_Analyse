@@ -8,7 +8,7 @@ import java.lang.reflect.Array;
  * @version 0.1
  */
 
-public class QuickSort implements SortierIF{
+public class QuickSort implements SortIF {
     /**
      *
      * @param array

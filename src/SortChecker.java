@@ -7,7 +7,7 @@
 public class SortChecker {
 
     /**
-     * Checks if the array is sortet ascending oder descending.
+     * Checks if the array is sorted ascending oder descending.
      * @param array to be checked
      * @return boolean, if sorted true, if unsorted false
      */

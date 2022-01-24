@@ -2,15 +2,36 @@ import java.io.*;
 import java.util.Vector;
 
 /**
+ * This class manages all data import, export, calculations and Executes them with the run() method.
  * @since 12.01.2022
  * @author Kevin Stupar
- * @version 0.3
+ * @version 1.3
  */
 public class Manager {
-    public final String[] fileSources;
-    private final Vector<SortierIF> sorter = new Vector<>();
+
+    /**
+     * Sores the source to all files.
+     */
+    private final String[] fileSources;
+
+    /**
+     * Stores sorters for later execution.
+     */
+    private final Vector<SortIF> sorter = new Vector<>();
+
+    /**
+     * Object used to export data.
+     */
     private final DataExport dataExport = new DataExport();
+
+    /**
+     * Object used to import data.
+     */
     private final DataImport dataImport = new DataImport();
+
+    /**
+     * value for showing the completion in %
+     */
     private double complete=0;
 
     /**
@@ -18,7 +39,6 @@ public class Manager {
      */
     public Manager() {
         fileSources = dataImport.getFileSources();
-
     }
 
     /**
@@ -69,19 +89,17 @@ public class Manager {
      * Add method for the sort algorithms, later used to sort arrays.
      * @param sort algorithm to add to be used to calculate.
      */
-    public void addSorter(SortierIF sort){
+    public void addSorter(SortIF sort){
         sorter.add(sort);
     }
 
     /**
-     * Main Method, runs the manager, does else nothing.
-     * @param args additional arguments, but unused
+     * Main Method, runs the manager, does nothing else.
+     * @param args additional arguments, but unused.
      */
     public static void main(String[] args) {
         Manager manager = new Manager();
-        for (int i=0; i<500; i++) {
-            manager.addSorter(new SelectionSort());
-        }
+        manager.addSorter(new SelectionSort());
         manager.run();
     }
 }
