@@ -1,4 +1,5 @@
 import java.lang.reflect.Array;
+import java.util.Random;
 
 /**
  * Diese Klasse sortiert ein Array nach einem beliebigem Index der am Anfang
@@ -9,44 +10,57 @@ import java.lang.reflect.Array;
  */
 
 public class QuickSort implements SortIF {
+    private int countBits = 0;
+    private long nanoTime = 0;
+    private int[] a;
+    private int countSwaps = 0;
+    private int countCompares = 0;
     /**
      *
      * @param array
      * @param first
      * @param last
-     * @return
+     * @return positionleft
      */
     public int split(int[] array, int first, int last){
         /**
          * Es wird aus dem Array ein beliebiger index genommen und in der variable pivot gespeichert.
          */
         //todo random index
-        int pivot = array[(first + last)/2];
+        countBits++;
+        int pivot = (int)(Math.random()*(last - first) + first);
         /**
          * Zeigt auf das erste Element der Liste.
          * Wird auch gegebenenfalls später inkrementiert.
          */
+        countBits++;
         int positionleft = first;
         /**
          * Zeigt auf das letzte Element der Liste.
          * Wird auch gegebenenfalls später dekrementiert.
          */
+        countBits++;
         int positionright = last;
-
+        countCompares++;
         while (positionleft <= positionright){
+            countCompares++;
             /**
              * Solange die Elemente auf der linken Seite kleiner als das pivot Element
              * sind, erhöht die es die Position.
              */
+            countCompares++;
             while (array[positionleft] < pivot){
                 positionleft++;
+                countCompares++;
             }
             /**
              * Solange die Elemente auf der rechten Seite grösser als das Pivot-Element
              * sind, verringet es die Position.
              */
+            countCompares++;
             while (array[positionright] > pivot){
                 positionright--;
+                countCompares++;
             }
             /**
              * Tausche Elemente:
@@ -56,7 +70,10 @@ public class QuickSort implements SortIF {
              * 4. Auf der linken Seite um eins weitergeleitet (positionleft ++)
              * 5. Auf der rechten Seite um eins zurückgehen (positionright --)
              */
+            countCompares++;
             if (positionleft <= positionright){
+                countBits++;
+                countSwaps++;
                 int zwischenResultat = array[positionleft];
                 array[positionleft] = array[positionright];
                 array[positionright] = zwischenResultat;
@@ -77,16 +94,19 @@ public class QuickSort implements SortIF {
         /**
          * Aufteilung des Arrays in die zwei Seiten. Die linke Seit wird kleiner als Pivot und rechte Seite grösser als Pivot.
          */
+        countBits++;
         int index = split(array, first, last);
         /**
          * Das repräsentiert die linke Seite vom Pivot-Element.
          */
+        countCompares++;
         if (first < index - 1){
             sort(array, first, index - 1);
         }
         /**
          * Das repräsentiert die rechte Seite vom Pivot-Element.
          */
+        countCompares++;
         if (index < last){
             sort(array, index, last);
         }
@@ -97,25 +117,20 @@ public class QuickSort implements SortIF {
      */
     @Override
     public void sort(int[] array) {
-
+        nanoTime =- System.nanoTime();
+        sort(array, 0, array.length - 1);
+        nanoTime -= System.nanoTime();
+        a = array.clone();
     }
 
     @Override
     public Data getData() {
-        //todo: return data
-        return null;
-    }
-
-    public static void main(String[] args) {
-        QuickSort q = new QuickSort();
-        int [] beispielArray = {6,23,534,12,4,1,65,3};
-        for (int i = 0; i < beispielArray.length; i++){
-            System.out.println(beispielArray[i]);
-        }
-        q.sort(beispielArray, 0, beispielArray.length);
-        System.out.println("-------------------------");
-        for (int i = 0; i < beispielArray.length; i++){
-            System.out.println(beispielArray[i]);
-        }
+        Data data = new Data("QuickSort-random");
+        data.setStorageSpace(countBits*32);
+        data.setNanoTime(nanoTime);
+        data.setArray(a);
+        data.setCountWrite(countSwaps);
+        data.setCountCompare(countCompares);
+        return data;
     }
 }
