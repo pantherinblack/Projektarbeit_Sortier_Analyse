@@ -109,6 +109,7 @@ public class Manager {
         manager.addSorter(new CocktailSort());
         manager.addSorter(new MergeSort());
         manager.addSorter(new HeapSort());
+        manager.addSorter(new BubbleSort());
         manager.run();
 
     }

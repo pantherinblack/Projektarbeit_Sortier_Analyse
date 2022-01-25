@@ -80,24 +80,30 @@ public class HeapSort implements SortIF {
         /**
          * Build heap (rearrange array).
          */
-        //
+
         countCompares++;
         for (int i = n / 2 - 1; i >= 0; i--) {
             countCompares++;
             heapify(array, n, i);
         }
-        // One by one extract an element from heap
+        /**
+         *  One by one extract an element from heap
+         */
         countCompares++;
         for (int i = n - 1; i > 0; i--) {
             countCompares++;
-            // Move current root to end
+            /**
+             * Move current root to end
+             */
             countBits++;
             countSwaps+=2;
             int temp = array[0];
             array[0] = array[i];
             array[i] = temp;
 
-            // call max heapify on the reduced heap
+            /**
+             * call max heapify on the reduced heap
+             */
             heapify(array, i, 0);
         }
         nanoTime += System.nanoTime();
