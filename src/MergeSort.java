@@ -132,7 +132,7 @@ public class MergeSort implements SortIF{
     }
 
     /**
-     * Excute sort()
+     * Execute sort()
      * @param array to be sorted.
      */
     @Override
