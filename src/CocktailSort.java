@@ -1,6 +1,8 @@
 
 /**
- * This class sorts a array with a CocktailSort and returns the data.
+ * This class sorts a array with a CocktailSort and returns the data. The CocktailSort is a version of BubbleSort.
+ * The Bubble sort algorithm always traverses elements from left and moves the largest element to its correct position in first iteration and second largest in second iteration and so on.
+ * The CocktailSort tranverses through a given array in both directions alternatively.
  * @since 25.01.2022
  * @author Moustafa Hawi
  * @version 0.1
