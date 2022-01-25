@@ -107,6 +107,7 @@ public class Manager {
         manager.addSorter(new SelectionSort());
         manager.addSorter(new QuickSort());
         manager.addSorter(new CocktailSort());
+        manager.addSorter(new MergeSort());
         manager.run();
 
     }
