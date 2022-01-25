@@ -100,6 +100,7 @@ public class Manager {
     public static void main(String[] args) {
         Manager manager = new Manager();
         manager.addSorter(new QuickSort());
+        manager.addSorter(new CocktailSort());
         manager.run();
 
     }
