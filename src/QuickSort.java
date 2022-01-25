@@ -28,7 +28,7 @@ public class QuickSort implements SortIF {
          */
         //todo random index
         countBits++;
-        int pivot = (int)(Math.random()*(last - first) + first);
+        int pivot = first;
         /**
          * Zeigt auf das erste Element der Liste.
          * Wird auch gegebenenfalls später inkrementiert.
@@ -49,7 +49,7 @@ public class QuickSort implements SortIF {
              * sind, erhöht die es die Position.
              */
             countCompares++;
-            while (array[positionleft] < pivot){
+            while (array[positionleft] < array[pivot]){
                 positionleft++;
                 countCompares++;
             }
@@ -58,7 +58,7 @@ public class QuickSort implements SortIF {
              * sind, verringet es die Position.
              */
             countCompares++;
-            while (array[positionright] > pivot){
+            while (array[positionright] > array[pivot]){
                 positionright--;
                 countCompares++;
             }
@@ -100,7 +100,7 @@ public class QuickSort implements SortIF {
          * Das repräsentiert die linke Seite vom Pivot-Element.
          */
         countCompares++;
-        if (first < index - 1){
+        if (first < index-1){
             sort(array, first, index - 1);
         }
         /**
