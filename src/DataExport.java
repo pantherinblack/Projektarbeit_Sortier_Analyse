@@ -60,10 +60,15 @@ public class DataExport {
                     text.append(",");
                     switch (a) {
                         case 0 : text.append(data.get((j + i * data.size() / fileSources.length)).getNanoTime());
+                        break;
                         case 1 : text.append(data.get((j + i * data.size() / fileSources.length)).getCountWrite());
+                        break;
                         case 2 : text.append(data.get((j + i * data.size() / fileSources.length)).getCountCompare());
+                        break;
                         case 3 : text.append(data.get((j + i * data.size() / fileSources.length)).getStorageSpace());
+                        break;
                         case 4 : text.append(SortChecker.isSorted(data.get((j + i * data.size() / fileSources.length)).getArray()));
+                        break;
                     }
 
                 }

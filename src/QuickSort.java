@@ -10,11 +10,11 @@ import java.util.Random;
  */
 
 public class QuickSort implements SortIF {
-    private int countBits = 0;
+    private long countBits = 0;
     private long nanoTime = 0;
     private int[] a;
-    private int countSwaps = 0;
-    private int countCompares = 0;
+    private long countSwaps = 0;
+    private long countCompares = 0;
     /**
      *
      * @param array
@@ -117,9 +117,9 @@ public class QuickSort implements SortIF {
      */
     @Override
     public void sort(int[] array) {
-        nanoTime =- System.nanoTime();
+        nanoTime = - System.nanoTime();
         sort(array, 0, array.length - 1);
-        nanoTime -= System.nanoTime();
+        nanoTime += System.nanoTime();
         a = array.clone();
     }
 

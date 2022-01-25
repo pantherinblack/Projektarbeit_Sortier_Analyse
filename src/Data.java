@@ -10,7 +10,7 @@ public class Data {
     /**
      * Attribute storing the number of writes the sort-algorithm needed to sort the array.
      */
-    private int countWrite;
+    private long countWrite;
 
     /**
      * Attribute storing the sort type, defined in the constructor, defines the sorting-algorithm used.
@@ -20,7 +20,7 @@ public class Data {
     /**
      * Attribute storing the value of heap space needed to sort the array in bytes.
      */
-    private int storageSpace;
+    private long storageSpace;
 
     /**
      * Attribute storing the number of compares used to sort the array.
@@ -49,7 +49,7 @@ public class Data {
      * Gives back the sort-type (String). Attention: if the sort-type isn't set, you might get an exception.
      * @return sortType, int
      */
-    public String  getSortType() {
+    public String getSortType() {
         return sortType;
     }
 
@@ -65,7 +65,7 @@ public class Data {
      * Gives the number of writes needed to sort the array. Attention: If writes aren't set, you might get an exception
      * @return count of writes.
      */
-    public int getCountWrite() {
+    public long getCountWrite() {
         return countWrite;
     }
 
@@ -73,7 +73,7 @@ public class Data {
      * Sets the count of how many writes has been needed to sort the array.
      * @param countWrite number of writes.
      */
-    public void setCountWrite(int countWrite) {
+    public void setCountWrite(long countWrite) {
         this.countWrite = countWrite;
     }
 
@@ -113,7 +113,7 @@ public class Data {
      * Gives the calculated storage space in bytes the algorithm used to sort the array. Attention: If storage isn't set, you might get an exception
      * @return needed storage-space in bytes.
      */
-    public int getStorageSpace() {
+    public long getStorageSpace() {
         return storageSpace;
     }
 
@@ -121,7 +121,7 @@ public class Data {
      * Sets te needed storage space to sort the array in bytes.
      * @param storageSpace needed space in bytes to sort the array.
      */
-    public void setStorageSpace(int storageSpace) {
+    public void setStorageSpace(long storageSpace) {
         this.storageSpace = storageSpace;
     }
 

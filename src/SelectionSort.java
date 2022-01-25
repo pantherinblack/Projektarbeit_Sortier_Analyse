@@ -19,12 +19,12 @@ public class SelectionSort implements SortIF {
     /**
      * counter counting to number of writes executed by algorithm.
      */
-    private int writes=0;
+    private long writes=0;
 
     /**
      * counter counting int variables.
      */
-    private int space=0;
+    private long space=0;
 
     /**
      * used to store the time in nanoseconds needed for sorting.
