@@ -112,6 +112,5 @@ public class Manager {
         manager.addSorter(new BubbleSort());
         manager.addSorter(new TimSort());
         manager.run();
-
     }
 }

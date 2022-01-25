@@ -44,7 +44,7 @@ public class BubbleSort implements SortIF{
 
     @Override
     public Data getData() {
-        Data data = new Data("QuickSort-random");
+        Data data = new Data("BubbleSort");
         data.setStorageSpace(countBits*32);
         data.setNanoTime(nanoTime);
         data.setArray(a);
