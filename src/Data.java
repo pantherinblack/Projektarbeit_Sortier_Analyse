@@ -1,6 +1,7 @@
 /**
  * This Class is used to store Data to int-sort-algorithms and the sorted array.
  * For Sorting purposes, you are able to Sort not by Sorter-name, but by an int value, witch is defined by the sortType algorithms
+ *
  * @author Kevin Stupar
  * @version 1.0
  * @since 12.01.2022
@@ -39,14 +40,16 @@ public class Data {
 
     /**
      * Constructor creating an object and defines the algorithm used to sort the array.
+     *
      * @param sortType defines the algorithm used to sort the array.
      */
-    public Data(String  sortType) {
+    public Data(String sortType) {
         this.sortType = sortType;
     }
 
     /**
      * Gives back the sort-type (String). Attention: if the sort-type isn't set, you might get an exception.
+     *
      * @return sortType, int
      */
     public String getSortType() {
@@ -55,14 +58,16 @@ public class Data {
 
     /**
      * Sets the sort-type for later use.
+     *
      * @param sortType sort-type to be set for later use.
      */
-    public void setSortType(String  sortType) {
+    public void setSortType(String sortType) {
         this.sortType = sortType;
     }
 
     /**
      * Gives the number of writes needed to sort the array. Attention: If writes aren't set, you might get an exception
+     *
      * @return count of writes.
      */
     public long getCountWrite() {
@@ -71,6 +76,7 @@ public class Data {
 
     /**
      * Sets the count of how many writes has been needed to sort the array.
+     *
      * @param countWrite number of writes.
      */
     public void setCountWrite(long countWrite) {
@@ -79,6 +85,7 @@ public class Data {
 
     /**
      * Gives the number of compares used to sort the array. Attention: If compares aren't set, you might get an exception
+     *
      * @return number of compares.
      */
     public long getCountCompare() {
@@ -87,6 +94,7 @@ public class Data {
 
     /**
      * sets the number of counts used to sort the array for later uses.
+     *
      * @param countCompare number of compares.
      */
     public void setCountCompare(long countCompare) {
@@ -95,6 +103,7 @@ public class Data {
 
     /**
      * Gives the time used to sort the array in nanoseconds. Attention: If time isn't set, you might get an exception
+     *
      * @return sorting-time in nanoseconds
      */
     public long getNanoTime() {
@@ -103,6 +112,7 @@ public class Data {
 
     /**
      * Sets the time used to sort the array in nanoseconds.
+     *
      * @param nanoTime nanoseconds for array-sorting
      */
     public void setNanoTime(long nanoTime) {
@@ -111,6 +121,7 @@ public class Data {
 
     /**
      * Gives the calculated storage space in bytes the algorithm used to sort the array. Attention: If storage isn't set, you might get an exception
+     *
      * @return needed storage-space in bytes.
      */
     public long getStorageSpace() {
@@ -119,6 +130,7 @@ public class Data {
 
     /**
      * Sets te needed storage space to sort the array in bytes.
+     *
      * @param storageSpace needed space in bytes to sort the array.
      */
     public void setStorageSpace(long storageSpace) {
@@ -127,6 +139,7 @@ public class Data {
 
     /**
      * Gives back the sorted int-array. Attention: If array isn't set, you might get an exception
+     *
      * @return int-array.
      */
     public int[] getArray() {
@@ -135,6 +148,7 @@ public class Data {
 
     /**
      * Sets the sorted int-array
+     *
      * @param array int-array
      */
     public void setArray(int[] array) {
