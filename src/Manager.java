@@ -111,6 +111,7 @@ public class Manager {
         manager.addSorter(new HeapSort());
         manager.addSorter(new BubbleSort());
         manager.addSorter(new TimSort());
+        manager.addSorter(new RandomizedQuickSort());
         manager.run();
     }
 }
