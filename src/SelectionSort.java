@@ -1,5 +1,6 @@
 /**
  * Used to sort an array by a specific algorithm
+ * This Selection sort is nearly a Bubblesort, with the difference, that it searches for the lowest value in the array and places ist at the beginning
  *
  * @author Kevin Stupar
  * @version 1.0
