@@ -17,18 +17,27 @@ public class BubbleSort implements SortIF{
     @Override
     public void sort(int[] array) {
         nanoTime =- System.nanoTime();
+        countBits++;
         int n = array.length;
-        for (int i = 0; i < n-1; i++)
-            for (int j = 0; j < n-i-1; j++)
-                if (array[j] > array[j+1])
-                {
+        countCompares++;
+        for (int i = 0; i < n-1; i++) {
+            countCompares++;
+            countCompares++;
+            for (int j = 0; j < n - i - 1; j++) {
+                countCompares++;
+                countCompares++;
+                if (array[j] > array[j + 1]) {
                     /**
                      * swap arr[j+1] and arr[j]
                      */
+                    countBits++;
+                    countSwaps += 2;
                     int temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                 }
+            }
+        }
         nanoTime += System.nanoTime();
         a = array.clone();
     }
