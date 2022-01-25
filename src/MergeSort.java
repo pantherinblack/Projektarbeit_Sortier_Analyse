@@ -130,6 +130,11 @@ public class MergeSort implements SortIF{
             merge(array, l, m, r);
         }
     }
+
+    /**
+     * Excute sort()
+     * @param array to be sorted.
+     */
     @Override
     public void sort(int[] array) {
         nanoTime = - System.nanoTime();
@@ -138,6 +143,10 @@ public class MergeSort implements SortIF{
         a = array.clone();
     }
 
+    /**
+     * Returns data
+     * @return data
+     */
     @Override
     public Data getData() {
         Data data = new Data("MergeSort");
