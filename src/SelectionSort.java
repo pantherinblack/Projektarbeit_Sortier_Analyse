@@ -66,11 +66,15 @@ public class SelectionSort implements SortIF {
      */
     private void selectionSort() {
         space++;
+
+        compares++;
         for (int i = 0; i < array.length; i++) {
             compares++;
             int min = i;
             space++;
             space++;
+
+            compares++;
             for (int j = i; j < array.length; j++) {
                 compares++;
                 if (array[min] > array[j]) min = j;
