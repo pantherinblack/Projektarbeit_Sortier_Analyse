@@ -110,6 +110,7 @@ public class Manager {
         manager.addSorter(new MergeSort());
         manager.addSorter(new HeapSort());
         manager.addSorter(new BubbleSort());
+        manager.addSorter(new TimSort());
         manager.run();
 
     }
