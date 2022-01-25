@@ -79,7 +79,7 @@ public class SelectionSort implements SortIF {
             int cache = array[i];
             array[i] = array[min];
             array[min] = cache;
-            writes += 3;
+            writes += 2;
             space++;
         }
     }
