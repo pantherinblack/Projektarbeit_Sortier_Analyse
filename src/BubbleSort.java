@@ -1,5 +1,12 @@
 /**
  * Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order.
+ * After, the array is already sorted, but our algorithm does not know if it is completed. The algorithm needs one whole pass without any swap to know it is sorted.
+ * Worst and Average Case Time Complexity: O(n*n). Worst case occurs when array is reverse sorted.
+ * Best Case Time Complexity: O(n). Best case occurs when array is already sorted.
+ * Auxiliary Space: O(1)
+ * Boundary Cases: Bubble sort takes minimum time (Order of n) when elements are already sorted.
+ * Sorting In Place: Yes
+ * Stable: Yes
  * @since 25.01.2022
  * @author Moustafa Hawi
  * @version 0.1
