@@ -30,21 +30,21 @@ public class MergeSort implements SortIF {
      * @param r
      */
     public void merge(int array[], int l, int m, int r) {
-        /**
+        /*
          * Find sizes if two subarrays to be merged.
          */
         countBits++;
         int n1 = m - l + 1;
         countBits++;
         int n2 = r - m;
-        /**
+        /*
          * Create temp arrays.
          */
         int L[] = new int[n1];
         countBits += L.length;
         int R[] = new int[n2];
         countBits += R.length;
-        /**
+        /*
          * Copy data to temporary arrays.
          */
         countCompares++;
@@ -59,16 +59,16 @@ public class MergeSort implements SortIF {
             countSwaps++;
             R[j] = array[m + 1 + j];
         }
-        /**
+        /*
          * Merge the temporary arrays.
          */
-        /**
+        /*
          * Initial indexes of first and second subarrays
          */
         countBits++;
         countBits++;
         int i = 0, j = 0;
-        /**
+        /*
          * Initial index of merged subarray array
          */
         countBits++;
@@ -88,7 +88,7 @@ public class MergeSort implements SortIF {
             }
             k++;
         }
-        /**
+        /*
          *  Copy remaining elements of L[] if any
          */
         countCompares++;
@@ -100,7 +100,7 @@ public class MergeSort implements SortIF {
             k++;
         }
 
-        /**
+        /*
          *  Copy remaining elements of R[] if any
          */
         countCompares++;
@@ -123,19 +123,19 @@ public class MergeSort implements SortIF {
     public void sort(int[] array, int l, int r) {
         countCompares++;
         if (l < r) {
-            /**
+            /*
              * Find the middle point
              */
             countBits++;
             int m = l + (r - l) / 2;
 
-            /**
+            /*
              * Sort first and second halves
              */
             sort(array, l, m);
             sort(array, m + 1, r);
 
-            /**
+            /*
              * Merge the sorted halves
              */
             merge(array, l, m, r);

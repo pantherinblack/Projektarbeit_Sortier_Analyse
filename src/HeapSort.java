@@ -2,7 +2,9 @@
  * Heap sort is a comparison-based sorting technique based on Binary Heap data structure.
  * It is similar to selection sort where we first find the minimum element and place the minimum element at the beginning.
  * We repeat the same process for the remaining elements.
- *
+ * best case: 	Ω(N log N)
+ * worst case: 	O(N log N)
+ * avarage case: Θ(N log N)
  * @author Moustafa Hawi
  * @version 0.1
  * @since 25.01.2022
@@ -16,28 +18,27 @@ public class HeapSort implements SortIF {
 
     /**
      * To heapify a subtree rooted with node i which is an index in arr[]. n is size of heap
-     *
      * @param array
      * @param n
      * @param i
      */
     public void heapify(int[] array, int n, int i) {
-        /**
+        /*
          * Initialize largest as root
          */
         countBits++;
         int largest = i;
-        /**
+        /*
          * left = 2*i + 1
          */
         countBits++;
         int l = 2 * i + 1;
-        /**
+        /*
          * right = 2*i + 2
          */
         countBits++;
         int r = 2 * i + 2;
-        /**
+        /*
          *  If left child is larger than root
          */
 
@@ -45,7 +46,7 @@ public class HeapSort implements SortIF {
             countSwaps++;
             largest = l;
         }
-        /**
+        /*
          * If right child is larger than largest so far
          */
         countCompares++;
@@ -53,7 +54,7 @@ public class HeapSort implements SortIF {
             countSwaps++;
             largest = r;
         }
-        /**
+        /*
          * If largest is not root
          */
         countCompares++;
@@ -63,7 +64,7 @@ public class HeapSort implements SortIF {
             int swap = array[i];
             array[i] = array[largest];
             array[largest] = swap;
-            /**
+            /*
              * Recursively heapify the affected sub-tree
              */
             heapify(array, n, largest);
@@ -72,8 +73,6 @@ public class HeapSort implements SortIF {
 
     /**
      * Build a rerange array and execute heapify()
-     * Execute
-     *
      * @param array to be sorted.
      */
     @Override
@@ -81,7 +80,7 @@ public class HeapSort implements SortIF {
         nanoTime = -System.nanoTime();
         countBits++;
         int n = array.length;
-        /**
+        /*
          * Build heap (rearrange array).
          */
 
@@ -90,13 +89,13 @@ public class HeapSort implements SortIF {
             countCompares++;
             heapify(array, n, i);
         }
-        /**
+        /*
          *  One by one extract an element from heap
          */
         countCompares++;
         for (int i = n - 1; i > 0; i--) {
             countCompares++;
-            /**
+            /*
              * Move current root to end
              */
             countBits++;
@@ -105,7 +104,7 @@ public class HeapSort implements SortIF {
             array[0] = array[i];
             array[i] = temp;
 
-            /**
+            /*
              * call max heapify on the reduced heap
              */
             heapify(array, i, 0);

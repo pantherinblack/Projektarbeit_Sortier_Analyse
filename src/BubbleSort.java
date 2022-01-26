@@ -21,7 +21,6 @@ public class BubbleSort implements SortIF {
 
     /**
      * This Method sort the Bubble sort. It is really simple, it compares the first two elements, and swaps them if the first one is smaller than the second one.
-     *
      * @param array to be sorted.
      */
     @Override
@@ -37,7 +36,7 @@ public class BubbleSort implements SortIF {
                 countCompares++;
                 countCompares++;
                 if (array[j] > array[j + 1]) {
-                    /**
+                    /*
                      * swap arr[j+1] and arr[j]
                      */
                     countBits++;
@@ -52,6 +51,10 @@ public class BubbleSort implements SortIF {
         a = array.clone();
     }
 
+    /**
+     * This method returns data.
+     * @return data
+     */
     @Override
     public Data getData() {
         Data data = new Data("BubbleSort");

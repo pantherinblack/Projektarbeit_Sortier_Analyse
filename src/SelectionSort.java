@@ -18,27 +18,27 @@
  */
 public class SelectionSort implements SortIF {
 
-    /**
+    /*
      * Array to be worked on.
      */
     private int[] array;
 
-    /**
+    /*
      * counter counting the number of compares the algorithm needs.
      */
     private long compares = 0;
 
-    /**
+    /*
      * counter counting to number of writes executed by algorithm.
      */
     private long writes = 0;
 
-    /**
+    /*
      * counter counting int variables.
      */
     private long space = 0;
 
-    /**
+    /*
      * used to store the time in nanoseconds needed for sorting.
      */
     private long time = 0;
@@ -56,7 +56,7 @@ public class SelectionSort implements SortIF {
         time += System.nanoTime();
     }
 
-    /**
+    /*
      * Stores all data in a Data object and returns it.
      *
      * @return data object containing information
@@ -77,6 +77,7 @@ public class SelectionSort implements SortIF {
 
     /**
      * Runs the sorting algorithm itself.
+     *
      */
     private void selectionSort() {
         space++;

@@ -27,7 +27,7 @@ public class TimSort implements SortIF {
     public int minRunLength(int n) {
         countSwaps++;
         assert n >= 0;
-        /**
+        /*
          * Becomes 1 if any 1 bits are shifted off
          */
         countBits++;
@@ -78,7 +78,7 @@ public class TimSort implements SortIF {
      * @param r
      */
     public void merge(int[] array, int l, int m, int r) {
-        /**
+        /*
          * Original array is broken in two parts
          * left and right array
          */
@@ -105,7 +105,7 @@ public class TimSort implements SortIF {
         int j = 0;
         int k = l;
 
-        /**
+        /*
          * After comparing, we merge those two array
          *         in larger sub array
          */
@@ -124,7 +124,7 @@ public class TimSort implements SortIF {
             }
             k++;
         }
-        /**
+        /*
          * Copy remaining elements
          * of left, if any
          */
@@ -136,7 +136,7 @@ public class TimSort implements SortIF {
             k++;
             i++;
         }
-        /**
+        /*
          * Copy remaining element of right, if any
          */
         countCompares++;
@@ -158,7 +158,7 @@ public class TimSort implements SortIF {
     public void sort(int[] array, int n) {
         countBits++;
         int minRun = minRunLength(MIN_MERGE);
-        /**
+        /*
          * Sort individual subarrays of size RUN
          */
         countCompares++;
@@ -166,25 +166,25 @@ public class TimSort implements SortIF {
             countCompares++;
             insertionSort(array, i, Math.min((i + MIN_MERGE - 1), (n - 1)));
         }
-        /**
+        /*
          * Start merging from size RUN (or 32). It will merge to form size 64, then 128, 256 and so on...
          */
         countCompares++;
         for (int size = minRun; size < n; size = 2 * size) {
             countCompares++;
-            /**
+            /*
              * Pick starting point of left sub array. We are going to merge arr[left..left+size-1] and arr[left+size, left+2*size-1]. After every merge, we increase left by 2*size.
              */
             countCompares++;
             for (int left = 0; left < n; left += 2 * size) {
                 countCompares++;
-                /**
+                /*
                  * Find ending point of left sub array mid+1 is starting point of right sub array
                  */
                 countBits += 2;
                 int mid = left + size - 1;
                 int right = Math.min((left + 2 * size - 1), (n - 1));
-                /**
+                /*
                  * Merge sub array arr[left.....mid] & arr[mid+1....right]
                  */
                 countCompares++;

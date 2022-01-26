@@ -34,13 +34,13 @@ public class QuickSort implements SortIF {
          */
         countBits++;
         int pivot = first;
-        /**
+        /*
          * Shows the first element of the list.
          * will be increased later
          */
         countBits++;
         int positionleft = first;
-        /**
+        /*
          * shows the last element of the list.
          * will be reduced later
          */
@@ -49,7 +49,7 @@ public class QuickSort implements SortIF {
         countCompares++;
         while (positionleft <= positionright) {
             countCompares++;
-            /**
+            /*
              * As long as the elements on the left side are smaller than the pivot element
              * are, it increases the position.
              */
@@ -58,7 +58,7 @@ public class QuickSort implements SortIF {
                 positionleft++;
                 countCompares++;
             }
-            /**
+            /*
              * As long as the elements on the right side are bigger than the pivot element
              * it reduces the position.
              */
@@ -67,7 +67,7 @@ public class QuickSort implements SortIF {
                 positionright--;
                 countCompares++;
             }
-            /**
+            /*
              * Exchange elements:
              * 1. intermediate result holds the value from the left side.
              * 2. Then the value at the position of the left side is changed to the value of the right side.
@@ -102,14 +102,14 @@ public class QuickSort implements SortIF {
          */
         countBits++;
         int index = split(array, first, last);
-        /**
+        /*
          * This represents the left side of the pivot element.
          */
         countCompares++;
         if (first < index - 1) {
             sort(array, first, index - 1);
         }
-        /**
+        /*
          * This represents the right side of the pivot element.
          */
         countCompares++;

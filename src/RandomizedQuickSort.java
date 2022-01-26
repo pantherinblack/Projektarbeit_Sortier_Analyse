@@ -42,13 +42,13 @@ public class RandomizedQuickSort implements SortIF{
      * @return
      */
     public int split(int array[],int low, int high){
-        /**
+        /*
          * pivot is chosen randomly
          */
         random(array,low,high);
         countBits++;
         int pivot = array[high];
-        /**
+        /*
          * index of smaller element
          */
         countBits++;
@@ -56,13 +56,13 @@ public class RandomizedQuickSort implements SortIF{
         countCompares++;
         for (int j = low; j < high; j++) {
             countCompares++;
-            /**
+            /*
              * If current element is smaller than or equal to pivot
              */
             countCompares++;
             if (array[j] < pivot) {
                 i++;
-                /**
+                /*
                  * swap arr[i] and arr[j]
                  */
                 countBits++;
@@ -72,7 +72,7 @@ public class RandomizedQuickSort implements SortIF{
                 array[j] = temp;
             }
         }
-        /**
+        /*
          * swap arr[i+1] and arr[high] (or pivot)
          */
         countBits++;
@@ -95,12 +95,12 @@ public class RandomizedQuickSort implements SortIF{
     public void sort(int [] array, int low, int high){
         if (low < high) {
             countCompares++;
-            /**
+            /*
              *  pi is partitioning index, arr[pi] is now at right place
              */
             countBits++;
             int pi = split(array, low, high);
-            /**
+            /*
              * Recursively sort elements before
              * partition and after partition
              */
