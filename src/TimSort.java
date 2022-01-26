@@ -3,7 +3,9 @@
  * A stable sorting algorithm works in O(n Log n) time.
  * Used in Java’s Arrays.sort().
  * First sort small pieces using Insertion Sort, then merges the pieces using merge of merge sort.
- *
+ * Best case: The best-case time complexity of Tim sort is O(n).
+ * Worst case: The worst-case time complexity of Tim sort is O(n log n).
+ * Average Case: The average case time complexity of Tim sort is O(n log n).
  * @author Moustafa Hawi
  * @version 0.1
  * @since 25.01.2022
