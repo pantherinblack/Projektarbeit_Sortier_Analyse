@@ -12,6 +12,7 @@
  * average case: Using random pivoting we improve the expected or average time complexity to O (N log N).
  * stable: The default implementation is not stable.
  * However any sorting algorithm can be made stable by considering indexes as comparison parameter.
+ *
  * @author Kevin Stupar, Moustafa Hawi
  * @version 1.0
  * @since 19.01.2022
@@ -77,7 +78,6 @@ public class SelectionSort implements SortIF {
 
     /**
      * Runs the sorting algorithm itself.
-     *
      */
     private void selectionSort() {
         space++;

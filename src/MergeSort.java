@@ -3,13 +3,14 @@
  * calls itself for the two halves, and then merges the two sorted halves.
  * The merge() function is used for merging two halves. The merge(arr, l, m, r) is a key process that
  * assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one.
- *
+ * <p>
  * Sorting In Place: No in a typical implementation
  * Stable: Yes
  * Auxiliary Space: O(n)
  * worst case: Worst-case time complexity is O(n log n)
  * best case: Best Time Complexity: O(nlogn)
  * average case: Average Time Complexity: O(nlogn)
+ *
  * @author Moustafa Hawi
  * @version 0.1
  * @since 25.01.2022

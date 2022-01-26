@@ -21,6 +21,7 @@ public class BubbleSort implements SortIF {
 
     /**
      * This Method sort the Bubble sort. It is really simple, it compares the first two elements, and swaps them if the first one is smaller than the second one.
+     *
      * @param array to be sorted.
      */
     @Override
@@ -53,6 +54,7 @@ public class BubbleSort implements SortIF {
 
     /**
      * This method returns data.
+     *
      * @return data
      */
     @Override

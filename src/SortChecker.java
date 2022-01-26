@@ -1,8 +1,9 @@
 /**
  * Used to check, if the Array is sorted, multiple methods are available.
- * @since 12.01.2022
+ *
  * @author Kevin Stupar
  * @version 1.0
+ * @since 12.01.2022
  */
 public class SortChecker {
 

@@ -5,6 +5,7 @@
  * best case: 	Ω(N log N)
  * worst case: 	O(N log N)
  * avarage case: Θ(N log N)
+ *
  * @author Moustafa Hawi
  * @version 0.1
  * @since 25.01.2022
@@ -18,6 +19,7 @@ public class HeapSort implements SortIF {
 
     /**
      * To heapify a subtree rooted with node i which is an index in arr[]. n is size of heap
+     *
      * @param array
      * @param n
      * @param i
@@ -73,6 +75,7 @@ public class HeapSort implements SortIF {
 
     /**
      * Build a rerange array and execute heapify()
+     *
      * @param array to be sorted.
      */
     @Override

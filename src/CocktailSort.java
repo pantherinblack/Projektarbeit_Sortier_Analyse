@@ -1,14 +1,14 @@
-
 /**
  * This class sorts a array with a CocktailSort and returns the data. The CocktailSort is a version of BubbleSort.
  * The Bubble sort algorithm always traverses elements from left and moves the largest element to its correct position in first iteration and second largest in second iteration and so on.
  * The CocktailSort tranverses through a given array in both directions alternatively.
- * @since 25.01.2022
+ *
  * @author Moustafa Hawi
  * @version 0.1
+ * @since 25.01.2022
  */
 
-public class CocktailSort implements SortIF{
+public class CocktailSort implements SortIF {
     private int countBits = 0;
     private long nanoTime = 0;
     private int[] a;
@@ -17,11 +17,12 @@ public class CocktailSort implements SortIF{
 
     /**
      * This Method sorts the Array.
+     *
      * @param array
      */
     @Override
     public void sort(int[] array) {
-        nanoTime = - System.nanoTime();
+        nanoTime = -System.nanoTime();
         boolean swapped = true;
         countBits++;
         int start = 0;
@@ -29,7 +30,7 @@ public class CocktailSort implements SortIF{
         int end = array.length;
 
         countCompares++;
-        while (swapped == true){
+        while (swapped == true) {
             countCompares++;
             /**
              * Reset the swapped flag on entering the loop, because it might be true from a previous iteration.
@@ -40,12 +41,12 @@ public class CocktailSort implements SortIF{
          * loop from bottom to top same as the bubble sort.
          */
         countCompares++;
-        for (int i = start; i < end - 1; i++){
+        for (int i = start; i < end - 1; i++) {
             countCompares++;
             countCompares++;
-            if (array[i] > array[i + 1]){
+            if (array[i] > array[i + 1]) {
                 countBits++;
-                countSwaps+=2;
+                countSwaps += 2;
                 int temporär = array[i];
                 array[i] = array[i + 1];
                 array[i + 1] = temporär;
@@ -57,7 +58,7 @@ public class CocktailSort implements SortIF{
          */
         countCompares++;
         if (swapped == false) {
-            break;
+            return;
         }
 
         /**
@@ -71,42 +72,43 @@ public class CocktailSort implements SortIF{
         /**
          * From top to bottom, doing the same comparison as in the previous stage.
          */
+        countCompares++;
+        for (int i = end - 1; i >= start; i--) {
             countCompares++;
-            for (int i = end - 1; i >= start; i--){
-                countCompares++;
-                countCompares++;
-                if (array[i] > array[i + 1]){
-                    countBits++;
-                    countSwaps+=2;
-                    int temporär = array[i];
-                    array[i] = array[i + 1];
-                    array[i + 1] = temporär;
-                    swapped = true;
-                }
+            countCompares++;
+            if (array[i] > array[i + 1]) {
+                countBits++;
+                countSwaps += 2;
+                int temporär = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = temporär;
+                swapped = true;
             }
-            /**
-             * increase the starting point, because the last stage would have moved the next smallest number to its rightful spot.
-             */
-            start = start + 1;
-            nanoTime += System.nanoTime();
-            a = array.clone();
         }
+        /**
+         * increase the starting point, because the last stage would have moved the next smallest number to its rightful spot.
+         */
+        start = start + 1;
+        nanoTime += System.nanoTime();
+        a = array.clone();
+    }
 
     /**
      * This Method return data.
+     *
      * @return data
      */
     @Override
     public Data getData() {
         Data data = new Data("CocktailSort");
-        data.setStorageSpace(countBits*32);
+        data.setStorageSpace(countBits * 32);
         data.setNanoTime(nanoTime);
         data.setArray(a);
         data.setCountWrite(countSwaps);
         data.setCountCompare(countCompares);
-        countBits=0;
-        countCompares=0;
-        countSwaps=0;
+        countBits = 0;
+        countCompares = 0;
+        countSwaps = 0;
         return data;
     }
 }

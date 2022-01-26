@@ -6,6 +6,7 @@
  * Best case: The best-case time complexity of Tim sort is O(n).
  * Worst case: The worst-case time complexity of Tim sort is O(n log n).
  * Average Case: The average case time complexity of Tim sort is O(n log n).
+ *
  * @author Moustafa Hawi
  * @version 0.1
  * @since 25.01.2022

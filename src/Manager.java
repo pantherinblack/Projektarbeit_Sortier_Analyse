@@ -113,21 +113,4 @@ public class Manager {
     public void addSorter(SortIF sort) {
         sorter.add(sort);
     }
-
-    /**
-     * Main Method, runs the manager, does nothing else.
-     *
-     * @param args additional arguments, but unused.
-     */
-    public static void main(String[] args) {
-        Manager manager = new Manager();
-        manager.addSorter(new SelectionSort());
-        manager.addSorter(new QuickSort());
-        manager.addSorter(new MergeSort());
-        manager.addSorter(new HeapSort());
-        manager.addSorter(new BubbleSort());
-        manager.addSorter(new TimSort());
-        manager.addSorter(new RandomizedQuickSort());
-        manager.run();
-    }
 }
