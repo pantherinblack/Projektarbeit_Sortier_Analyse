@@ -1,8 +1,13 @@
 /**
  * Used to sort an array by a specific algorithm
  * This Selection sort is nearly a Bubblesort, with the difference, that it searches for the lowest value in the array and places ist at the beginning
- *
- * @author Kevin Stupar
+ *  The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order)
+ *  from unsorted part and putting it at the beginning. The algorithm maintains two subarrays in a given array.
+ * 1) The subarray which is already sorted.
+ * 2) Remaining subarray which is unsorted.
+ * In every iteration of selection sort, the minimum element (considering ascending order)
+ * from the unsorted subarray is picked and moved to the sorted subarray.
+ * @author Kevin Stupar, Moustafa Hawi
  * @version 1.0
  * @since 19.01.2022
  */

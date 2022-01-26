@@ -106,7 +106,6 @@ public class Manager {
         Manager manager = new Manager();
         manager.addSorter(new SelectionSort());
         manager.addSorter(new QuickSort());
-        manager.addSorter(new CocktailSort());
         manager.addSorter(new MergeSort());
         manager.addSorter(new HeapSort());
         manager.addSorter(new BubbleSort());

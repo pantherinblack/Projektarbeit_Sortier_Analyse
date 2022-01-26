@@ -57,7 +57,7 @@ public class CocktailSort implements SortIF{
          */
         countCompares++;
         if (swapped == false) {
-            return;
+            break;
         }
 
         /**
