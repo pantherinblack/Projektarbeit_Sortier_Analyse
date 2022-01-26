@@ -1,24 +1,27 @@
 /**
  * Like QuickSort, MergeSort is a Divide and Conquer algorithm. It devides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves.
  * The merge() function is used for merging two halves. The merge(arr, l, m, r) is a key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one.
- * @since 25.01.2022
+ *
  * @author Moustafa Hawi
  * @version 0.1
+ * @since 25.01.2022
  */
-public class MergeSort implements SortIF{
+public class MergeSort implements SortIF {
     private long countBits = 0;
     private long nanoTime = 0;
     private int[] a;
     private long countSwaps = 0;
     private long countCompares = 0;
+
     /**
      * This Method merges the array.
+     *
      * @param array
      * @param l
      * @param m
      * @param r
      */
-    public void merge(int array[], int l, int m, int r){
+    public void merge(int array[], int l, int m, int r) {
         /**
          * Find sizes if two subarrays to be merged.
          */
@@ -37,13 +40,13 @@ public class MergeSort implements SortIF{
          * Copy data to temporary arrays.
          */
         countCompares++;
-        for (int i = 0; i < n1; i++){
+        for (int i = 0; i < n1; i++) {
             countCompares++;
             countSwaps++;
             L[i] = array[l + i];
         }
         countCompares++;
-        for (int j = 0; j < n2; j++){
+        for (int j = 0; j < n2; j++) {
             countCompares++;
             countSwaps++;
             R[j] = array[m + 1 + j];
@@ -70,8 +73,7 @@ public class MergeSort implements SortIF{
                 countSwaps++;
                 array[k] = L[i];
                 i++;
-            }
-            else {
+            } else {
                 countSwaps++;
                 array[k] = R[j];
                 j++;
@@ -105,18 +107,19 @@ public class MergeSort implements SortIF{
 
     /**
      * Main function that sorts arr[l..r] using merge()
+     *
      * @param array
      * @param l
      * @param r
      */
-    public void sort (int [] array, int l, int r){
+    public void sort(int[] array, int l, int r) {
         countCompares++;
         if (l < r) {
             /**
              * Find the middle point
              */
             countBits++;
-            int m =l+ (r-l)/2;
+            int m = l + (r - l) / 2;
 
             /**
              * Sort first and second halves
@@ -133,11 +136,12 @@ public class MergeSort implements SortIF{
 
     /**
      * Execute sort()
+     *
      * @param array to be sorted.
      */
     @Override
     public void sort(int[] array) {
-        nanoTime = - System.nanoTime();
+        nanoTime = -System.nanoTime();
         sort(array, 0, array.length - 1);
         nanoTime += System.nanoTime();
         a = array.clone();
@@ -145,16 +149,20 @@ public class MergeSort implements SortIF{
 
     /**
      * Returns data
+     *
      * @return data
      */
     @Override
     public Data getData() {
         Data data = new Data("MergeSort");
-        data.setStorageSpace(countBits*32);
+        data.setStorageSpace(countBits * 32);
         data.setNanoTime(nanoTime);
         data.setArray(a);
         data.setCountWrite(countSwaps);
         data.setCountCompare(countCompares);
+        countBits = 0;
+        countCompares = 0;
+        countSwaps = 0;
         return data;
     }
 }

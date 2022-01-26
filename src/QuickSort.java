@@ -1,14 +1,12 @@
-import java.lang.reflect.Array;
-import java.util.Random;
-
 /**
  * Like Merge Sort, QuickSort is a Divide and Conquer algorithm.
  * It picks an element as pivot and partitions the given array around the picked pivot.
  * There are many different versions of quickSort that pick pivot in different ways.
  * This one picks the first element as pivot.
- * @since 13.01.2022
+ *
  * @author Moustafa Hawi
  * @version 0.1
+ * @since 13.01.2022
  */
 
 public class QuickSort implements SortIF {
@@ -17,18 +15,20 @@ public class QuickSort implements SortIF {
     private int[] a;
     private long countSwaps = 0;
     private long countCompares = 0;
+
     /**
      * This function takes first element as pivot, places
      * the pivot element at its correct position in sorted
      * array, and places all smaller (smaller than pivot)
      * to left of pivot and all greater elements to right
      * of pivot
+     *
      * @param array
      * @param first
      * @param last
      * @return positionleft
      */
-    public int split(int[] array, int first, int last){
+    public int split(int[] array, int first, int last) {
         /**
          * takes first element as pivot
          */
@@ -47,14 +47,14 @@ public class QuickSort implements SortIF {
         countBits++;
         int positionright = last;
         countCompares++;
-        while (positionleft <= positionright){
+        while (positionleft <= positionright) {
             countCompares++;
             /**
              * As long as the elements on the left side are smaller than the pivot element
              * are, it increases the position.
              */
             countCompares++;
-            while (array[positionleft] < array[pivot]){
+            while (array[positionleft] < array[pivot]) {
                 positionleft++;
                 countCompares++;
             }
@@ -63,7 +63,7 @@ public class QuickSort implements SortIF {
              * it reduces the position.
              */
             countCompares++;
-            while (array[positionright] > array[pivot]){
+            while (array[positionright] > array[pivot]) {
                 positionright--;
                 countCompares++;
             }
@@ -76,7 +76,7 @@ public class QuickSort implements SortIF {
              * 5. Go back one on the right side (positionright --)
              */
             countCompares++;
-            if (positionleft <= positionright){
+            if (positionleft <= positionright) {
                 countBits++;
                 countSwaps++;
                 int zwischenResultat = array[positionleft];
@@ -90,12 +90,13 @@ public class QuickSort implements SortIF {
     }
 
     /**
-     *  This method calls the split() method until it has sorted through the array.
+     * This method calls the split() method until it has sorted through the array.
+     *
      * @param array
      * @param first
      * @param last
      */
-    public void sort(int[] array, int first, int last){
+    public void sort(int[] array, int first, int last) {
         /**
          * Splitting the array into the two sides. The left side becomes smaller than Pivot and the right side becomes larger than Pivot.
          */
@@ -105,24 +106,26 @@ public class QuickSort implements SortIF {
          * This represents the left side of the pivot element.
          */
         countCompares++;
-        if (first < index-1){
+        if (first < index - 1) {
             sort(array, first, index - 1);
         }
         /**
          * This represents the right side of the pivot element.
          */
         countCompares++;
-        if (index < last){
+        if (index < last) {
             sort(array, index, last);
         }
     }
+
     /**
      * This method calls the method sort() (which is called with the parameters array : int[], first : int, last : int.
+     *
      * @param array
      */
     @Override
     public void sort(int[] array) {
-        nanoTime = - System.nanoTime();
+        nanoTime = -System.nanoTime();
         sort(array, 0, array.length - 1);
         nanoTime += System.nanoTime();
         a = array.clone();
@@ -130,16 +133,20 @@ public class QuickSort implements SortIF {
 
     /**
      * This method returns data
+     *
      * @return data
      */
     @Override
     public Data getData() {
-        Data data = new Data("QuickSort-random");
-        data.setStorageSpace(countBits*32);
+        Data data = new Data("QuickSort");
+        data.setStorageSpace(countBits * 32);
         data.setNanoTime(nanoTime);
         data.setArray(a);
         data.setCountWrite(countSwaps);
         data.setCountCompare(countCompares);
+        countBits = 0;
+        countCompares = 0;
+        countSwaps = 0;
         return data;
     }
 }

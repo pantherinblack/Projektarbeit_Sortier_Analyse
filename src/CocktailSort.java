@@ -104,6 +104,9 @@ public class CocktailSort implements SortIF{
         data.setArray(a);
         data.setCountWrite(countSwaps);
         data.setCountCompare(countCompares);
+        countBits=0;
+        countCompares=0;
+        countSwaps=0;
         return data;
     }
 }

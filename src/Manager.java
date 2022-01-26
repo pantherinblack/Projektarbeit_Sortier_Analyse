@@ -1,4 +1,4 @@
-import java.io.*;
+import java.io.IOException;
 import java.util.Vector;
 
 /**
@@ -43,6 +43,23 @@ public class Manager {
     }
 
     /**
+     * Main Method, runs the manager, does nothing else.
+     *
+     * @param args additional arguments, but unused.
+     */
+    public static void main(String[] args) {
+        Manager manager = new Manager();
+        manager.addSorter(new SelectionSort());
+        manager.addSorter(new QuickSort());
+        manager.addSorter(new MergeSort());
+        manager.addSorter(new HeapSort());
+        manager.addSorter(new BubbleSort());
+        manager.addSorter(new TimSort());
+        manager.addSorter(new RandomizedQuickSort());
+        manager.run();
+    }
+
+    /**
      * Runs the calculation of the program, executes every sort algorithm on every dataset
      */
     public void run() {
@@ -56,7 +73,7 @@ public class Manager {
             runSorters(array);
         }
         System.out.println("\r100.00%");
-        System.out.println("Generating Solutions finished, generating files.");
+        System.out.println("Generating Solutions finished, generating files...");
         dataExport.generateFiletext();
     }
 

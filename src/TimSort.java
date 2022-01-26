@@ -3,20 +3,22 @@
  * A stable sorting algorithm works in O(n Log n) time.
  * Used in Java’s Arrays.sort().
  * First sort small pieces using Insertion Sort, then merges the pieces using merge of merge sort.
- * @since 25.01.2022
+ *
  * @author Moustafa Hawi
  * @version 0.1
+ * @since 25.01.2022
  */
-public class TimSort implements SortIF{
+public class TimSort implements SortIF {
+    int MIN_MERGE = 32;
     private long countBits = 0;
     private long nanoTime = 0;
     private int[] a;
     private long countSwaps = 0;
     private long countCompares = 0;
 
-    int MIN_MERGE = 32;
     /**
      * This Method defines the minimum Run Length.
+     *
      * @param n
      * @return
      */
@@ -31,24 +33,26 @@ public class TimSort implements SortIF{
         countCompares++;
         while (n >= MIN_MERGE) {
             countCompares++;
-            countSwaps+=2;
+            countSwaps += 2;
             r |= (n & 1);
             n >>= 1;
         }
         return n + r;
     }
+
     /**
      * This function sorts array from left index to
      * to right index which is of size atmost RUN
+     *
      * @param array
      * @param left
      * @param right
      */
-    public void insertionSort(int[] array, int left, int right){
+    public void insertionSort(int[] array, int left, int right) {
         countCompares++;
         for (int i = left + 1; i <= right; i++) {
             countCompares++;
-            countSwaps+=2;
+            countSwaps += 2;
             int temp = array[i];
             int j = i - 1;
             countCompares++;
@@ -62,14 +66,16 @@ public class TimSort implements SortIF{
             array[j + 1] = temp;
         }
     }
+
     /**
      * Merge function merges the sorted runs.
+     *
      * @param array
      * @param l
      * @param m
      * @param r
      */
-    public void merge(int[]array, int l, int m, int r){
+    public void merge(int[] array, int l, int m, int r) {
         /**
          * Original array is broken in two parts
          * left and right array
@@ -109,8 +115,7 @@ public class TimSort implements SortIF{
                 countSwaps++;
                 array[k] = left[i];
                 i++;
-            }
-            else {
+            } else {
                 countBits++;
                 array[k] = right[j];
                 j++;
@@ -141,12 +146,14 @@ public class TimSort implements SortIF{
             j++;
         }
     }
+
     /**
      * Iterative Timsort function to sort the array [0... n-1] (similar to merge sort)
+     *
      * @param array
      * @param n
      */
-    public void sort(int[]array, int n){
+    public void sort(int[] array, int n) {
         countBits++;
         int minRun = minRunLength(MIN_MERGE);
         /**
@@ -172,22 +179,23 @@ public class TimSort implements SortIF{
                 /**
                  * Find ending point of left sub array mid+1 is starting point of right sub array
                  */
-                countBits+=2;
+                countBits += 2;
                 int mid = left + size - 1;
                 int right = Math.min((left + 2 * size - 1), (n - 1));
                 /**
                  * Merge sub array arr[left.....mid] & arr[mid+1....right]
                  */
                 countCompares++;
-                if(mid < right) {
+                if (mid < right) {
                     merge(array, left, mid, right);
                 }
             }
         }
     }
+
     @Override
     public void sort(int[] array) {
-        nanoTime = - System.nanoTime();
+        nanoTime = -System.nanoTime();
         int n = array.length;
         sort(array, n);
         nanoTime += System.nanoTime();
@@ -197,11 +205,14 @@ public class TimSort implements SortIF{
     @Override
     public Data getData() {
         Data data = new Data("TimSort");
-        data.setStorageSpace(countBits*32);
+        data.setStorageSpace(countBits * 32);
         data.setNanoTime(nanoTime);
         data.setArray(a);
         data.setCountWrite(countSwaps);
         data.setCountCompare(countCompares);
+        countBits = 0;
+        countCompares = 0;
+        countSwaps = 0;
         return data;
     }
 }
