@@ -1,16 +1,14 @@
-import java.util.Random;
-
+import java.util.*;
 /**
  * Like Merge Sort, QuickSort is a Divide and Conquer algorithm.
  * It picks an element as pivot and partitions the given array around the picked pivot.
  * There are many different versions of quickSort that pick pivot in different ways.
  * This one picks a random element as a pivot.
- *
+ * @since 13.01.2022
  * @author Moustafa Hawi
  * @version 0.1
- * @since 13.01.2022
  */
-public class RandomizedQuickSort implements SortIF {
+public class RandomizedQuickSort implements SortIF{
     private long countBits = 0;
     private long nanoTime = 0;
     private int[] a;
@@ -19,18 +17,17 @@ public class RandomizedQuickSort implements SortIF {
 
     /**
      * This Function helps in calculating random numbers between low(inclusive) and high(inclusive)
-     *
      * @param array
      * @param low
      * @param high
      */
-    public void random(int array[], int low, int high) {
-        Random rand = new Random();
-        countBits += 2;
-        int pivot = rand.nextInt(high - low) + low;
-        int temp1 = array[pivot];
-        array[pivot] = array[high];
-        array[high] = temp1;
+    public void random(int array[],int low,int high){
+        Random rand= new Random();
+        countBits+=2;
+        int pivot = rand.nextInt(high-low)+low;
+        int temp1=array[pivot];
+        array[pivot]=array[high];
+        array[high]=temp1;
     }
 
     /**
@@ -39,24 +36,23 @@ public class RandomizedQuickSort implements SortIF {
      * array, and places all smaller (smaller than pivot)
      * to left of pivot and all greater elements to right
      * of pivot
-     *
      * @param array
      * @param low
      * @param high
      * @return
      */
-    public int split(int array[], int low, int high) {
+    public int split(int array[],int low, int high){
         /**
          * pivot is chosen randomly
          */
-        random(array, low, high);
+        random(array,low,high);
         countBits++;
         int pivot = array[high];
         /**
          * index of smaller element
          */
         countBits++;
-        int i = (low - 1);
+        int i = (low-1);
         countCompares++;
         for (int j = low; j < high; j++) {
             countCompares++;
@@ -80,11 +76,11 @@ public class RandomizedQuickSort implements SortIF {
          * swap arr[i+1] and arr[high] (or pivot)
          */
         countBits++;
-        int temp = array[i + 1];
-        countSwaps += 2;
-        array[i + 1] = array[high];
+        int temp = array[i+1];
+        countSwaps+=2;
+        array[i+1] = array[high];
         array[high] = temp;
-        return i + 1;
+        return i+1;
     }
 
     /**
@@ -92,12 +88,11 @@ public class RandomizedQuickSort implements SortIF {
      * arr[] --> Array to be sorted,
      * low --> Starting index,
      * high --> Ending index
-     *
      * @param array
      * @param low
      * @param high
      */
-    public void sort(int[] array, int low, int high) {
+    public void sort(int [] array, int low, int high){
         if (low < high) {
             countCompares++;
             /**
@@ -109,19 +104,17 @@ public class RandomizedQuickSort implements SortIF {
              * Recursively sort elements before
              * partition and after partition
              */
-            sort(array, low, pi - 1);
-            sort(array, pi + 1, high);
+            sort(array, low, pi-1);
+            sort(array, pi+1, high);
         }
     }
-
     /**
      * This method calls the method sort() (which is called with the parameters array : int[], first : int, last : int.
-     *
      * @param array to be sorted.
      */
     @Override
     public void sort(int[] array) {
-        nanoTime = -System.nanoTime();
+        nanoTime = - System.nanoTime();
         sort(array, 0, array.length - 1);
         nanoTime += System.nanoTime();
         a = array.clone();
@@ -129,20 +122,16 @@ public class RandomizedQuickSort implements SortIF {
 
     /**
      * This method returns data.
-     *
      * @return data
      */
     @Override
     public Data getData() {
         Data data = new Data("QuickSort-random");
-        data.setStorageSpace(countBits * 32);
+        data.setStorageSpace(countBits*32);
         data.setNanoTime(nanoTime);
         data.setArray(a);
         data.setCountWrite(countSwaps);
         data.setCountCompare(countCompares);
-        countBits = 0;
-        countCompares = 0;
-        countSwaps = 0;
         return data;
     }
 }

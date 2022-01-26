@@ -7,7 +7,11 @@
  * 2) Remaining subarray which is unsorted.
  * In every iteration of selection sort, the minimum element (considering ascending order)
  * from the unsorted subarray is picked and moved to the sorted subarray.
- *
+ * worst case: The Worst-Case complexity is still O ( N^2 ).
+ * best case:  T(n) = 2T(n/2) + \theta(n)
+ * average case: Using random pivoting we improve the expected or average time complexity to O (N log N).
+ * stable: The default implementation is not stable.
+ * However any sorting algorithm can be made stable by considering indexes as comparison parameter.
  * @author Kevin Stupar, Moustafa Hawi
  * @version 1.0
  * @since 19.01.2022
